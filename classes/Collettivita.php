@@ -1,5 +1,5 @@
 <?php
-    class Collettività{
+    class Collettivita{
         private $nome;
         private $persone;
 
@@ -15,10 +15,10 @@
         function getPersona($codice){
             foreach($this->persone as $persona){
                 if($persona->getCodiceFiscale() === $codice){
-                    return $persona->toString();
+                    return $persona;
                 }
             }
-            return "Persona inesistente";
+            return null;
         }
 
         function addPersona($persona){

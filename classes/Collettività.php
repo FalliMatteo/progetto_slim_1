@@ -12,6 +12,19 @@
             return $this->nome;
         }
 
+        function getPersona($codice){
+            foreach($this->persone as $persona){
+                if($persona->getCodiceFiscale() === $codice){
+                    return $persona->toString();
+                }
+            }
+            return "Persona inesistente";
+        }
+
+        function addPersona($persona){
+            array_push($this->persone, $persona);
+        }
+
         function toString(){
             $string = $this->nome . " : ";
             foreach($this->persone as $persona){

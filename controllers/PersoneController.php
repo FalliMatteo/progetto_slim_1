@@ -12,14 +12,14 @@ class PersoneController{
     }
     
     function index(Request $request, Response $response, $args){
-        $collettività = $this->createTrio();
-        $response->getBody()->write($collettività->toString());
+        $colletivita = $this->createTrio();
+        $response->getBody()->write($colletivita->toString());
         return $response;
     }
     
     function getPersona(Request $request, Response $response, $args){
-        $collettività = $this->createTrio();
-        $persona = $collettività->getPersona($args["codice"]);
+        $colletivita = $this->createTrio();
+        $persona = $colletivita->getPersona($args["codice"]);
         if($persona === null){
             $string = "Persona inesistente";
         }else{

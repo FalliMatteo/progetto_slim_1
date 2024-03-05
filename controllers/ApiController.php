@@ -12,14 +12,14 @@ class ApiController{
     }
 
     function getJsonTrio(Request $request, Response $response, $args){
-        $collettività = $this->createTrio();
-        $response->getBody()->write(json_encode($collettività));
+        $colletivita = $this->createTrio();
+        $response->getBody()->write(json_encode($colletivita));
         return $response->withHeader("Content-Type","application/json");
     }
     
     function getJsonPersona(Request $request, Response $response, $args){
-        $collettività = $this->createTrio();
-        $persona = $collettività->getPersona($args["codice"]);
+        $colletivita = $this->createTrio();
+        $persona = $colletivita->getPersona($args["codice"]);
         if($persona === null){
             $response->getBody()->write("Persona inesistente");
             return $response;

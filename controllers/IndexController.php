@@ -5,7 +5,13 @@ use Slim\Factory\AppFactory;
 
 class IndexController{
     function index(Request $request, Response $response, $args){
-        $response->getBody()->write("Scrivi nell'url /persone per visualizzare la lista di persone disponibili \n/persone/CODICE_FISCALE per visualizzare le informazioni di una persona \n/json/persone per visualizzare la lista di persone disponibili in formato json \n/json/persone/CODICE_FISCALE per visualizzare le informazioni di una persona in formato json");
+        $response->getBody()->write(
+            "Scrivi nell'url...<br>
+            <b>/persone</b> per visualizzare la lista di persone disponibili<br>
+            <b>/persone/<i>codice_fiscale</i></b> per visualizzare le informazioni di una persona<br>
+            <b>/api/persone</b> per visualizzare la lista di persone disponibili in formato json<br>
+            <b>/api/persone/<i>codice_fiscale</i></b> per visualizzare le informazioni di una persona in formato json"
+        );
         return $response;
     }
 }

@@ -1,14 +1,14 @@
 <?php
-    class Persona{
+    class Persona implements jsonSerializable{
         private $nome;
         private $cognome;
-        private $età;
+        private $eta;
         private $codice_fiscale;
     
-        function __construct($nome, $cognome, $età, $codice_fiscale){
+        function __construct($nome, $cognome, $eta, $codice_fiscale){
             $this->nome = $nome;
             $this->cognome = $cognome;
-            $this->età = $età;
+            $this->eta = $eta;
             $this->codice_fiscale = $codice_fiscale;
         }
     
@@ -20,8 +20,8 @@
             return $this->cognome;
         }
     
-        function getEtà(){
-            return $this->età;
+        function getEta(){
+            return $this->eta;
         }
     
         function getCodiceFiscale(){
@@ -29,7 +29,16 @@
         }
     
         function toString(){
-            return $this->nome . ", " . $this->cognome . ", " . $this->età . ", " . $this->codice_fiscale;
+            return $this->nome . ", " . $this->cognome . ", " . $this->eta . ", " . $this->codice_fiscale;
+        }
+
+        function jsonSerialize(){
+            return [
+                "nome"=>$this->nome,
+                "cognome"=>$this->cognome,
+                "eta"=>$this->eta,
+                "codice_fiscale"=>$this->codice_fiscale
+            ];
         }
     }
 ?>

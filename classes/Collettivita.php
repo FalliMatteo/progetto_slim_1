@@ -1,5 +1,5 @@
 <?php
-    class Collettivita{
+    class Collettivita implements jsonSerializable{
         private $nome;
         private $persone;
 
@@ -31,6 +31,13 @@
                 $string .= $persona->toString() . "; ";
             }
             return $string;
+        }
+
+        function jsonSerialize(){
+            return [
+                "nome"=>$this->nome,
+                "persone"=>$this->persone
+            ];
         }
     }
 ?>
